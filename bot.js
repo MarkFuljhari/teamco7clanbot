@@ -1,8 +1,6 @@
-					|TEAMCO7CLAN DISCORDAPP JS BOT|
-___________________________________________________________________________________________________________________________________
+// TEAMCO7CLAN DISCORDAPP BOT JAVASCRIPT (SCRIPT) /
 
-			
-/* This is a full code of TeamCo7Bot (operating script of the bot).
+/* This is a full code of TeamCo7Bot  (operating script of the bot).
 
 This code basicly gives the bot knowledge of what to do and how to act when you interact with him within a Discord server or PM.
 Below here is an example of the code:
