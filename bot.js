@@ -27,7 +27,8 @@ client.on('message', message => {
   
          //// INFORMATION COMMANDS: /////
   
-  	// PING CMD
+  	 
+    // PING CMD
      if (msg.content.startsWith(prefix + 'ping')) {
     //   const t = await msg.channel.send("Ping ?");
     //   t.edit(`Pong! Latency is **${t.createdTimestamp - msg.createdTimestamp}**ms. API Latency is **${Math.round(client.ping)}**ms`); DON'T DELETE THIS EITHER
@@ -67,4 +68,4 @@ msg.channel.send(`${member} , ${msg.author} waved at you.`);
 
 });
 //
-client.login(process.env.BOT_TOKEN)
+client.login(process.env.BOT_TOKEN);
