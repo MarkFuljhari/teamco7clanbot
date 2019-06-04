@@ -67,6 +67,4 @@ msg.channel.send(`${member} , ${msg.author} waved at you.`);
 
 });
 //
-client.login(process.env.BOT_TOKEN);
-
-
+client.login(process.env.BOT_TOKEN)
