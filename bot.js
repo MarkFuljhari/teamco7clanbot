@@ -97,5 +97,32 @@ msg.channel.send(`${member} , ${msg.author} waved at you.`);
 }
 
   
+  //// INFORMATION SECTION ////
+  
+  // SERVERINFO CMD (EMBED)
+if (msg.content.startsWith(prefix + 'server')){
+  let online = msg.guild.members.filter(member => member.user.presence.status !== 'offline');
+  let day = msg.guild.createdAt.getDate()
+  let month = 1 + msg.guild.createdAt.getMonth()
+  let year = msg.guild.createdAt.getFullYear()
+   let sicon = msg.guild.iconURL;
+   let serverembed = new Discord.RichEmbed()
+   .setAuthor(msg.guild.name, sicon)
+   .setFooter(`Server Created  ${day}.${month}.${year}`)
+   .setColor("#7289DA")
+   .setThumbnail(sicon)
+   .addField("ID", msg.guild.id, true)
+   .addField("Name", msg.guild.name, true)
+   .addField("Owner", msg.guild.owner.user.tag, true)
+   .addField("Region", msg.guild.region, true)
+   .addField("Channels", msg.guild.channels.size, true)
+   .addField("Members", msg.guild.memberCount, true)
+   .addField("Humans", msg.guild.memberCount - msg.guild.members.filter(m => m.user.bot).size, true)
+   .addField("Bots", msg.guild.members.filter(m => m.user.bot).size, true)
+   .addField("Online", online.size, true)
+   .addField("Roles", msg.guild.roles.size, true);
+   msg.channel.send(serverembed);
+}
+
 });
 client.login(process.env.BOT_TOKEN);
