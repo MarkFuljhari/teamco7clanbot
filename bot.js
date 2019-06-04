@@ -3,6 +3,15 @@ const client = new Discord.Client();
 
 var prefix = "!"
 
+//// SHORTCUT TEXTS IN THE JAVASCRIPT (CODE): ////
+ 
+client.on('message', async msg => {
+  const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+ 
+  if(msg.author.bot) return;
+ 
+  if(msg.content.indexOf(prefix) !== 0) return;
+
 //// CONSOLE REPLY & GAME ACTIVITY STATUS OF THE BOT: ////
 
 client.on('ready', () => {
