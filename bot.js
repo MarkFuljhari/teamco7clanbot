@@ -76,6 +76,26 @@ client.on('message', async msg => {
 msg.reply('check your inbox for your commands!\nBot is still under development, not all commands shall work!');
    }
  
+  
+         //// ENTERTAINMENT COMMANDS: ////
+ 
+// POKE CMD
+if (msg.content.startsWith(prefix + 'poke')){
+let member = msg.mentions.members.first();
+msg.channel.send(`${member} got poked by ${msg.author}`);
+}
+ 
+// HI CMD
+if (msg.content.startsWith(prefix + 'hi')){
+msg.channel.send('Hey wassup?');
+}
+ 
+// HAND WAVE CMD
+if (msg.content.startsWith(prefix + 'wave')){
+let member = msg.mentions.members.first();
+msg.channel.send(`${member} , ${msg.author} waved at you.`);
+}
 
+  
 });
 client.login(process.env.BOT_TOKEN);
