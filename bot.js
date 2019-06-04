@@ -1,32 +1,20 @@
-// TEAMCO7CLAN DISCORDAPP BOT JAVASCRIPT (SCRIPT) /
+// TEAMCO7CLAN DISCORDAPP BOT JAVASCRIPT (SCRIPT) //
 
-/* This is a full code of TeamCo7Bot  (operating script of the bot).
+// This is a full code of TeamCo7Bot  (operating script of the bot).
 
-This code basicly gives the bot knowledge of what to do and how to act when you interact with him within a Discord server or PM.
-Below here is an example of the code:
+// This code basicly gives the bot knowledge of what to do and how to act when you interact with him within a Discord server or PM.
+// Below here is an example of the code:
 -----------------------------------------------------------------------------------------------
-client.on('message', async msg => {
-   EXAMPLE COMMAND INSTRUCTION & MEANINGS:
-      if (msg.content === 'example') { the { here signs the start of the scope (of the if sentence).
-         msg.reply('This is an example command !'); This command basicly replys to an user when the user uses a prefix + example in server it looks like this (keep in mind = is the example prefix here):  example it would send a message in the same channel saying YourName#1000, this is an example command!
-        } the } here signs the end of the scope(of the if sentence)
+// client.on('message', async msg => {
+	//  EXAMPLE COMMAND INSTRUCTION & MEANINGS:
+//      if (msg.content === 'example') { the { here signs the start of the scope (of the if sentence).
+//        msg.reply('This is an example command !'); This command basicly replys to an user when the user uses a prefix + example in server it looks like this (keep in mind = is the example prefix here):  example it would send a message in the same channel saying YourName#1000, this is an example command!
+//       } the } here signs the end of the scope(of the if sentence)
 });
 */
 //---------------------------------------------------------------------------------------------
 // This lines are here, because they are constants. Constants are basicly the stuff that you need in order for bot to run, they should all be declared on the begging of the code.
  
-// SHORTCUT TEXTS IN THE JAVASCRIPT (CODE): //
- 
-client.on('message', async msg => {
-  const args = msg.content.slice(prefix.length).trim().split(/ +/g);
- 
-  if(msg.author.bot) return;
- 
-  if(msg.content.indexOf(prefix) !== 0) return;
-// |MISC COMMANDS|----------------------> [Current Cmds: Ping,Help,commands,myavatar,avatar,stats,server,credits,socialmedia,invite] <----------------------------|
- 
-
-
 // This line below basicly exports the warnings into the seperate file
 //  let warns = JSON.stringify(fs.readFileSync("./warnings.json", "utf8"));
 -------------------------------------------------------------------------------------------------
@@ -152,22 +140,22 @@ client.on('guildMemberAdd', member => {
       },
       "fields": [
         {
-          "name": "» Information",
+          "name": "Information",
           "value": "!ping, !myavatar, !avatar, !stats, !serverinfo, !credits, !socialmedia, !invite",
           "inline": false
         },
         {
-          "name": "» Entertainment",
+          "name": "Entertainment",
           "value": "!poke, !hi, !weed, !haveibeenpwned, !dog, !cat, !meme, !boob, !slots, !8ball",
           "inline": false
         },
         {
-          "name": "» Staff Administration",
+          "name": "Staff Administration",
           "value": "!ban, !kick, !report, !poll, !purge, !mute, !warn, !setgame, !setprefix",
           "inline": false
         },
         {
-          "name": "» Music",
+          "name": "Music",
           "value": "Currently unavailable. Software Developer required!",
           "inline": false
         }
@@ -306,17 +294,17 @@ if (msg.content.startsWith(prefix + 'credits')){
     "thumbnail": "https://cdn.discordapp.com/attachments/344215127828070401/538810804024377374/20190117_091141.jpg",
     "fields": [
     {
-    "name": " Instagram",
+    "name": "Instagram",
     "value": "https://www.instagram.com/teamco7clan",
     "inline": false
      },
      {
-    "name": " Twitter",
+    "name": "Twitter",
     "value": "https://www.twitter.com/teamco7clan",
     "inline": false
     },
     {
-    "name": " Discord",
+    "name": "Discord",
     "value": "https://www.discord.me/teamco7clan",
     "inline": false
     }
@@ -366,31 +354,31 @@ msg.channel.send(`${member} , ${msg.author} waved at you.`);
 if (msg.content.startsWith(prefix + 'weed')){
   return msg.channel.send("**Smoking!**").then(async msg => {
     setTimeout(() => {
-        msg.edit('??');
+        msg.edit('☁️');
     }, 500);
     setTimeout(() => {
-        msg.edit('?? ? ');
+        msg.edit('☁️☁️');
     }, 700);
     setTimeout(() => {
-        msg.edit('?? ?? ');
+        msg.edit('💣');
     }, 900);
     setTimeout(() => {
-        msg.edit('?? ??? ');
+        msg.edit('💣💣');
     }, 1000);
     setTimeout(() => {
-        msg.edit('?? ???');
+        msg.edit('💣💣💣');
     }, 1100);
     setTimeout(() => {
-        msg.edit('?? ??');
+        msg.edit('💥');
     }, 1200);
     setTimeout(() => {
-        msg.edit('?? ?');
+        msg.edit('💣💥💨');
     }, 1300);
     setTimeout(() => {
-        msg.edit(`**Finished smoking!**`);
+        msg.edit(`That is what`);
     }, 1500);
     setTimeout(() => {
-        msg.delete(`**Finished Smoking!**`);
+        msg.delete(`That is what weed does`);
     }, 6000);
   });
 }
