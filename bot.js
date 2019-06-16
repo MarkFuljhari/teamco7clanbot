@@ -4,8 +4,8 @@ const client = new Discord.Client();
 var prefix = "!"
 
 client.on('ready', () => {
-  console.log('I am ready!');
-  console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
+  console.log('Clan Robot is ready to work!');
+  console.log(`Robot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
   client.user.setActivity(`!help | ${client.users.size} users`);
 });
 
