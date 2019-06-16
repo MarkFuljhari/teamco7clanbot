@@ -168,6 +168,50 @@ if (msg.content.startsWith(prefix + 'meme')){
     msg.channel.send(memembed);
 }
   
+  // SLOT MACHINE CMD
+if (msg.content.startsWith(prefix + 'slots')){
+  if (!msg.guild.member(client.user).hasPermission("SEND_MESSAGES")) return msg.author.send('I don\'t have permission to Send Messages. Please enable send messages for my role!');
+ 
+    let slots = ["🍎", "🍌", "🍒", "🍓", "🍈"];
+    let result1 = Math.floor((Math.random() * slots.length));
+    let result2 = Math.floor((Math.random() * slots.length));
+    let result3 = Math.floor((Math.random() * slots.length));
+    let name = msg.author.displayName;
+    let aicon = msg.author.displayAvatarURL;
+ 
+    if (slots[result1] === slots[result2] && slots[result3]) {
+        let wEmbed = new Discord.RichEmbed()
+            .setFooter("You Won!", aicon)
+            .setTitle(':slot_machine:Slots:slot_machine:')
+            .addField('Result:', slots[result1] + slots[result2] + slots[result3], true)
+            .setColor("#f4e842");
+        msg.channel.send(wEmbed);
+    } else {
+        let embed = new Discord.RichEmbed()
+            .setFooter('You Lost!', aicon)
+            .setTitle(':slot_machine:Slots:slot_machine:')
+            .addField('Result', slots[result1] + slots[result2] + slots[result3], true)
+            .setColor("#f4e842");
+        msg.channel.send(embed);
+    }
+}
+ 
+// 8BALL CMD
+if (msg.content.startsWith(prefix + '8ball')){
+  if (!args[2]) return msg.reply("please ask a full question!");
+  let replies = ["Why ask me that? :laughing:","Yes, Certainly :8ball:", "No, Never :8ball:", "Please ask again :8ball:"]
+  let result = Math.floor((Math.random() * replies.length));
+ 
+  let question = args.slice().join(" ");
+ 
+  let embedz = new Discord.RichEmbed()
+      .setAuthor(msg.author.username + " asks: " + question)
+      .setColor("#D3D3D3")
+      .addField("Answer", "Asked by " + msg.author.tag + "\nAnswer: " + replies[result] + "")
+ 
+  msg.channel.send(embedz)
+}
+  
   //// INFORMATION SECTION ////
   
   // SERVERINFO CMD (EMBED)
