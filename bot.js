@@ -212,8 +212,139 @@ if (msg.content.startsWith(prefix + '8ball')){
   msg.channel.send(embedz)
 }
   
+       //// INFORMATION SECTION ////
+ 
+     if (msg.content.startsWith(prefix + 'ping')) {
+    //   const t = await msg.channel.send("Ping ?");  DON'T DELETE THIS
+    //   t.edit(`Pong! Latency is **${t.createdTimestamp - msg.createdTimestamp}**ms. API Latency is **${Math.round(client.ping)}**ms`); DON'T DELETE THIS EITHER
+    let msgping1 = new Date();
+    let botping = new Date() - msg.createdAt;
+    let msgping2 = new Date() - msgping1;
+ 
+    let pingembed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .addField('Discord API Ping: ', Math.floor(botping) + 'ms')
+        .addField('Bot Ping: ', Math.floor(botping) + 'ms')
+        .addField('Message Ping: ', '~' + Math.round(msgping2) + 'ms')
+        .setTimestamp(new Date())
+        .setFooter(`Requested by ${msg.author.tag}`);
+ 
+   return msg.channel.send(pingembed);
+   }
+ 
+       // MYAVATAR CMD
+       if (msg.content.startsWith(prefix + 'myavatar')){
+        msg.member.send(msg.author.avatarURL);
+        msg.reply('I will send you your profile picture!');
+        }
+ 
+       // AVATAR @USER CMD
+       if (msg.content.startsWith(prefix + 'avatar')){
+        let member = msg.mentions.members.first();
+        msg.member.send(member.user.displayAvatarURL);
+        msg.reply('user\'s profile picture sent to you!');
+   }
+  
+      // SERVERINFO CMD (EMBED)
+if (msg.content.startsWith(prefix + 'serverinfo')){
+  let online = msg.guild.members.filter(member => member.user.presence.status !== 'offline');
+  let day = msg.guild.createdAt.getDate()
+  let month = 1 + msg.guild.createdAt.getMonth()
+  let year = msg.guild.createdAt.getFullYear()
+   let sicon = msg.guild.iconURL;
+   let serverembed = new Discord.RichEmbed()
+   .setAuthor(msg.guild.name, sicon)
+   .setFooter(`Server Created • ${day}.${month}.${year}`)
+   .setColor("#7289DA")
+   .setThumbnail(sicon)
+   .addField("ID", msg.guild.id, true)
+   .addField("Name", msg.guild.name, true)
+   .addField("Owner", msg.guild.owner.user.tag, true)
+   .addField("Region", msg.guild.region, true)
+   .addField("Channels", msg.guild.channels.size, true)
+   .addField("Members", msg.guild.memberCount, true)
+   .addField("Humans", msg.guild.memberCount - msg.guild.members.filter(m => m.user.bot).size, true)
+   .addField("Bots", msg.guild.members.filter(m => m.user.bot).size, true)
+   .addField("Online", online.size, true)
+   .addField("Roles", msg.guild.roles.size, true);
+   msg.channel.send(serverembed);
+}
+  
   //// STAFF ADMINISTRATION SECTION ////
   
-  // KICK CMD
+  // KICK @USER <REASON> COMMAND:
+if (msg.content.startsWith(prefix + 'kick')){
+ const kicklog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
+ const mod = msg.author;
+if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
+ return msg.reply("you don\'t have permission to use that!");
+ let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
+     if(!user)
+       return msg.reply("please mention a valid member of this server");
+     if(!user.kickable)
+       return msg.reply("unable to kick.\nIs this user a higher/the highest member?\nMake sure I have enough privileges.");
+     let reason = args.slice(1).join(' ');
+     if(!reason) reason = "No reason provided by executer.";
+     await user.kick(reason)
+       .catch(error => msg.reply(`Sorry ${msg.author} I couldn't kick because of : ${error}`));
+        const kickembed = new Discord.RichEmbed()
+        .setAuthor(' Action | Ban', `https://images-ext-2.discordapp.net/external/Wms63jAyNOxNHtfUpS1EpRAQer2UT0nOsFaWlnDdR3M/https/image.flaticon.com/icons/png/128/148/148757.png`)
+        .addField('User', `<@${user.id}>`)
+        .addField('Reason', `${reason}`)
+        .addField('Moderator', `${mod}`)
+        .setColor('#D9D900')
+    kicklog.send(kickembed)
+}
+  
+  // BAN @USER <REASON> COMMAND:
+if (msg.content.startsWith(prefix + 'ban')) {
+  const banlog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
+  const mod = msg.author;
+  if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
+  return msg.reply("you don\'t have permission to use that!");
+  let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
+if(!user)
+  return msg.reply("please mention a valid member of this server.");
+if(!user.bannable)
+  return msg.reply("unable to ban.\nIs this user a higher/the highest member?\nMake sure I have enough privileges.");
+ 
+let reason = args.slice(1).join(' ');
+if(!reason) reason = "No reason provided by executer.";
+ 
+await user.ban(reason)
+  .catch(error => msg.reply(`Sorry ${mod} I couldn't ban because of : ${error}`));
+ const banembed = new Discord.RichEmbed()
+           .setAuthor(' Action | Ban', `https://images-ext-2.discordapp.net/external/Wms63jAyNOxNHtfUpS1EpRAQer2UT0nOsFaWlnDdR3M/https/image.flaticon.com/icons/png/128/148/148757.png`)
+           .addField('User', `<@${user.id}>`)
+           .addField('Reason', `${reason}`)
+           .addField('Moderator', `${mod}`)
+           .setColor('#D9D900')
+       banlog.send(banembed)
+}
+ 
+  // SET GAME ACTIVITY STATUS OF THE BOT MANUALLY (WITHOUT ENTERING SCRIPT/CODE)
+// SETGAME <TEXT>
+if (msg.content.startsWith(prefix + 'setgame')) {
+  if(!msg.member.roles.some(r=>["Management","Staff"].includes(r.name)) )
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
+ 
+  let result = args.slice(1).join(' ');
+ 
+  client.user.setActivity(result);
+  msg.reply("command accepted! \nNew game activity message set!");
+  }
+ 
+// PREFIX <PREFIX> COMMAND
+if (msg.content.startsWith(prefix + 'setprefix')){
+  if(!msg.member.roles.some(r=>["Management"].includes(r.name)) )
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
+ 
+  let result = args.slice(1).join(' ');
+ 
+  client.user.setPrefix(result);
+  msg.reply("command accepted! \nNew Prefix has been set!");
+}
+
+  
 });
 client.login(process.env.BOT_TOKEN);
