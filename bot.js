@@ -129,6 +129,44 @@ msg.channel.send(`${member} , ${msg.author} waved at you.`);
   });
 }
  
+  // DOG CMD
+if (msg.content.startsWith(prefix +'dog')){
+  let {
+    body
+} = await superagent
+    .get(`https://random.dog/woof.json`);
+const dogembed = new Discord.RichEmbed()
+    .setTitle("Aww... Doggie!")
+    .setColor("RANDOM")
+    .setImage(body.url)
+msg.channel.send(dogembed);
+}
+ 
+// CAT CMD
+if (msg.content.startsWith(prefix + 'cat')){
+  let {
+    body
+} = await superagent
+    .get(`http://aws.random.cat/meow`);
+const catembed = new Discord.RichEmbed()
+    .setTitle('Aww... Kitty!')
+    .setColor("RANDOM")
+    .setImage(body.file)
+msg.channel.send(catembed);
+}
+ 
+// MEME CMD
+if (msg.content.startsWith(prefix + 'meme')){
+    let {
+        body
+    } = await superagent
+        .get(`https://api-to.get-a.life/meme`);
+    const memembed = new Discord.RichEmbed()
+        .setTitle("Life is a meme !")
+        .setColor("RANDOM")
+        .setImage(body.url)
+    msg.channel.send(memembed);
+}
   
   //// INFORMATION SECTION ////
   
