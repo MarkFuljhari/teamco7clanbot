@@ -96,6 +96,39 @@ let member = msg.mentions.members.first();
 msg.channel.send(`${member} , ${msg.author} waved at you.`);
 }
 
+  // WEED CMD
+  if (msg.content.startsWith(prefix + 'weed')){
+  return msg.channel.send("**Smoking!**").then(async msg => {
+    setTimeout(() => {
+        msg.edit('🚬');
+    }, 500);
+    setTimeout(() => {
+        msg.edit('🚬 ☁ ');
+    }, 700);
+    setTimeout(() => {
+        msg.edit('🚬 ☁☁ ');
+    }, 900);
+    setTimeout(() => {
+        msg.edit('🚬 ☁☁☁ ');
+    }, 1000);
+    setTimeout(() => {
+        msg.edit('🚬 ☁☁☁');
+    }, 1100);
+    setTimeout(() => {
+        msg.edit('🚬 ☁☁');
+    }, 1200);
+    setTimeout(() => {
+        msg.edit('🚬 ☁');
+    }, 1300);
+    setTimeout(() => {
+        msg.edit(`**Finished smoking!**`);
+    }, 1500);
+    setTimeout(() => {
+        msg.delete(`**Finished Smoking!**`);
+    }, 6000);
+  });
+}
+ 
   
   //// INFORMATION SECTION ////
   
