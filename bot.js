@@ -276,7 +276,7 @@ if (msg.content.startsWith(prefix + 'serverinfo')){
 if (msg.content.startsWith(prefix + 'kick')){
  const kicklog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
  const mod = msg.author;
-if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
+if(!msg.member.roles.some(r=>["Management","Staff"].includes(r.name)) )
  return msg.reply("you don\'t have permission to use that!");
  let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
      if(!user)
@@ -300,7 +300,7 @@ if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) 
 if (msg.content.startsWith(prefix + 'ban')) {
   const banlog = msg.guild.channels.find(channel => channel.name === 'mod-logs');
   const mod = msg.author;
-  if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
+  if(!msg.member.roles.some(r=>["Management","Staff"].includes(r.name)) )
   return msg.reply("you don\'t have permission to use that!");
   let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
 if(!user)
@@ -330,7 +330,7 @@ if (msg.content.startsWith(prefix + 'purge')){
     if (args[1] > 100) return msg.channel.send(':warning: `Please supply a number less than 100`');
             msg.channel.bulkDelete(args[1]);
             var cleanEmbed = new Discord.RichEmbed()
-            .setAuthor('Akelli Channel Cleaning')
+            .setAuthor('Channel Cleaning Service')
             .setDescription(`Cleaned **${args[1]}** messages :white_check_mark:`)
             .setFooter('Requested by ' + msg.author.tag, msg.author.avatarURL)
             .setColor('#ffffff');
