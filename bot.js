@@ -360,6 +360,35 @@ if (msg.content.startsWith(prefix + 'setprefix')){
   msg.reply("command accepted! \nNew Prefix has been set!");
 }
 
+  // POLL COMMAND:
+if (msg.content.startsWith(prefix + 'poll')){
+  if(!msg.member.roles.some(r=>["AC Management","Akelli Staff"].includes(r.name)) )
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
+ 
+    if (!msg.member.roles.find("name", "@everyone")) { //Whatever role you want, I pick @everyone because everyone can use this command
+        msg.channel.send('Invalid permissions.');
+        return;
+    }
+ 
+    // (CHECK FOR INPUT)
+    if (!args[0]) return msg.channel.send('Proper usage: a.poll <question>');
+ 
+    // (CREATE EMBED)
+    const embed = new Discord.RichEmbed()
+        .setColor("#ffffff") //To change color do .setcolor("#fffff")
+        .setFooter('React to Vote.')
+        .setDescription(args.join(' '))
+        .setTitle(`Poll Created By ${msg.author.username}`);
+ 
+    let msgSent = await msg.channel.send(embed)
+        .then(function (msgSent) {
+            msgSent.react("❎");
+            msgSent.react("✅"); // You can only add two reacts
+            msg.delete({timeout: 1000});
+            }).catch(function(error) {
+            console.log(error);
+        });
+}
   
 });
 client.login(process.env.BOT_TOKEN);
