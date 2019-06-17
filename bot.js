@@ -371,14 +371,14 @@ if (msg.content.startsWith(prefix + 'poll')){
     }
  
     // (CHECK FOR INPUT)
-    if (!args[0]) return msg.channel.send('Proper usage: a.poll <question>');
+    if (!args[0]) return msg.channel.send('Proper usage: a.<question>');
  
     // (CREATE EMBED)
     const embed = new Discord.RichEmbed()
         .setColor("#ffffff") //To change color do .setcolor("#fffff")
         .setFooter('React to Vote.')
         .setDescription(args.join(' '))
-        .setTitle(`Poll Created By ${msg.author.username}`);
+        .setTitle(`Poll started by ${msg.author.username}`);
  
     let msgSent = await msg.channel.send(embed)
         .then(function (msgSent) {
