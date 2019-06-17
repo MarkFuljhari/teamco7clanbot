@@ -363,7 +363,7 @@ if (msg.content.startsWith(prefix + 'setprefix')){
   // POLL COMMAND:
 if (msg.content.startsWith(prefix + 'poll')){
   if(!msg.member.roles.some(r=>["Management","Staff"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
+  return msg.reply("you don't have sufficient access to execute this command!\nRequirement: Management or Staff Member");
  
     if (!msg.member.roles.find("name", "@everyone")) { //Whatever role you want, I pick @everyone because everyone can use this command
         msg.channel.send('Invalid permissions.');
