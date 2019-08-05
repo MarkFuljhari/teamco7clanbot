@@ -29,7 +29,7 @@ client.on('message', async msg => {
       "author": {
       "name": "TeamCo7Clan Bot Introduction",
       "url": "https://thebestgameryt.github.io/AkelliBot/",
-      "icon_url": "https://cdn.discordapp.com/attachments/604062996603338831/608026288489496577/20190805_165916.jpg"
+      "icon_url": "https://cdn.discordapp.com/avatars/481540507479048203/a4fb450ef67ebf9fb9bb3079a89278c6.png?size=2048"
       }
       }
       });
@@ -43,7 +43,7 @@ client.on('message', async msg => {
       "description": "Need help? Join our Discord server.",
       "author": {
         "name": "Commands",
-        "icon_url": "https://cdn.discordapp.com/attachments/604062996603338831/608026288489496577/20190805_165916.jpg"
+        "icon_url": "https://cdn.discordapp.com/avatars/481540507479048203/a4fb450ef67ebf9fb9bb3079a89278c6.png?size=2048"
       },
       "color": 553380,
       "footer": {
