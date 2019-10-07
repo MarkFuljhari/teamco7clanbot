@@ -57,7 +57,7 @@ client.on('message', async msg => {
         },
         {
           "name": "» Entertainment",
-          "value": "!poke, !hi, !weed, !haveibeenpwned, !dog, !cat, !meme, !boob, !slots, !8ball",
+          "value": "!wave, !poke, !hi, !weed, !haveibeenpwned, !dog, !cat, !meme, !boob, !slots, !8ball",
           "inline": false
         },
         {
@@ -67,7 +67,7 @@ client.on('message', async msg => {
         },
         {
           "name": "» Music",
-          "value": "Currently unavailable. Software Developer required!",
+          "value": "Currently unavailable. Music Software Developer reauested! Feel free to apply",
           "inline": false
         }
       ]
