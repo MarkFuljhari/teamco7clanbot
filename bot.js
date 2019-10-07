@@ -67,7 +67,7 @@ client.on('message', async msg => {
         },
         {
           "name": "» Music",
-          "value": "Currently unavailable. Music Software Developer reauested! Feel free to apply",
+          "value": "Currently unavailable. Music Software Developer reauested! Feel free to apply.",
           "inline": false
         }
       ]
@@ -124,7 +124,7 @@ msg.channel.send(`${member} , ${msg.author} waved at you.`);
         msg.edit(`**Finished smoking!**`);
     }, 1500);
     setTimeout(() => {
-        msg.delete(`**Finished Smoking!**`);
+        msg.delete(`**Finished smoking!**`);
     }, 6000);
   });
 }
@@ -280,7 +280,7 @@ if(!msg.member.roles.some(r=>["Management","Staff"].includes(r.name)) )
  return msg.reply("you don\'t have permission to use that!");
  let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
      if(!user)
-       return msg.reply("please mention a valid member of this server");
+       return msg.reply("please mention a valid member of this server! ⚠️");
      if(!user.kickable)
        return msg.reply("unable to kick.\nIs this user a higher/the highest member?\nMake sure I have enough privileges.");
      let reason = args.slice(1).join(' ');
@@ -304,7 +304,7 @@ if (msg.content.startsWith(prefix + 'ban')) {
   return msg.reply("you don\'t have permission to use that!");
   let user = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
 if(!user)
-  return msg.reply("please mention a valid member of this server.");
+  return msg.reply("please mention a valid member of this server! ⚠️");
 if(!user.bannable)
   return msg.reply("unable to ban.\nIs this user a higher/the highest member?\nMake sure I have enough privileges.");
  
@@ -326,8 +326,8 @@ await user.ban(reason)
 if (msg.content.startsWith(prefix + 'purge')){
     if (!msg.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return msg.channel.send(':no_entry `I do not have the correct permissions.`').catch(console.error);
     if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(":no_entry: `Sorry, but you do not have valid permissions! If you beleive this is a error, contact an owner.`");
-    if (isNaN(args[1])) return msg.channel.send(':warning: `Please supply a valid amount of messages to purge`');
-    if (args[1] > 100) return msg.channel.send(':warning: `Please supply a number less than 100`');
+    if (isNaN(args[1])) return msg.channel.send(':warning: `Please supply a valid amount of messages to purge!` ⚠️');
+    if (args[1] > 100) return msg.channel.send(':warning: `Please supply a number less than 100` 😐');
             msg.channel.bulkDelete(args[1]);
             var cleanEmbed = new Discord.RichEmbed()
             .setAuthor('Channel Cleaning Service')
@@ -341,7 +341,7 @@ if (msg.content.startsWith(prefix + 'purge')){
 // SETGAME <TEXT>
 if (msg.content.startsWith(prefix + 'setgame')) {
   if(!msg.member.roles.some(r=>["Management","Staff"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management or Staff.");
  
   let result = args.slice(1).join(' ');
  
@@ -352,7 +352,7 @@ if (msg.content.startsWith(prefix + 'setgame')) {
 // PREFIX <PREFIX> COMMAND
 if (msg.content.startsWith(prefix + 'setprefix')){
   if(!msg.member.roles.some(r=>["Management"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management Team or Staff Member");
+  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management or Staff.");
  
   let result = args.slice(1).join(' ');
  
