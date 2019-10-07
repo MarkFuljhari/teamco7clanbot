@@ -326,8 +326,8 @@ await user.ban(reason)
 if (msg.content.startsWith(prefix + 'purge')){
     if (!msg.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return msg.channel.send(':no_entry `I do not have the correct permissions.`').catch(console.error);
     if (!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(":no_entry: `Sorry, but you do not have valid permissions! If you beleive this is a error, contact an owner.`");
-    if (isNaN(args[1])) return msg.channel.send(':warning: `Please supply a valid amount of messages to purge!` ⚠️');
-    if (args[1] > 100) return msg.channel.send(':warning: `Please supply a number less than 100` 😐');
+    if (isNaN(args[1])) return msg.channel.send(':warning: `Supply a valid amount of messages to purge!`');
+    if (args[1] > 100) return msg.channel.send(':warning: `Supply a number less than 100.`');
             msg.channel.bulkDelete(args[1]);
             var cleanEmbed = new Discord.RichEmbed()
             .setAuthor('Channel Cleaning Service')
@@ -341,7 +341,7 @@ if (msg.content.startsWith(prefix + 'purge')){
 // SETGAME <TEXT>
 if (msg.content.startsWith(prefix + 'setgame')) {
   if(!msg.member.roles.some(r=>["Management","Staff"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management or Staff.");
+  return msg.reply("you don't have sufficient access to execute this command! :warning: \n Requirement: Management or Staff.");
  
   let result = args.slice(1).join(' ');
  
@@ -352,7 +352,7 @@ if (msg.content.startsWith(prefix + 'setgame')) {
 // PREFIX <PREFIX> COMMAND
 if (msg.content.startsWith(prefix + 'setprefix')){
   if(!msg.member.roles.some(r=>["Management"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command! \n Requirement: Management or Staff.");
+  return msg.reply("you don't have sufficient access to execute this command! :warning: \n Requirement: Management.");
  
   let result = args.slice(1).join(' ');
  
@@ -363,7 +363,7 @@ if (msg.content.startsWith(prefix + 'setprefix')){
   // POLL COMMAND:
 if (msg.content.startsWith(prefix + 'poll')){
   if(!msg.member.roles.some(r=>["Management","Staff"].includes(r.name)) )
-  return msg.reply("you don't have sufficient access to execute this command!\nRequirement: Management or Staff Member");
+  return msg.reply("you don't have sufficient access to execute this command! :warning: \nRequirement: Management or Staff.");
  
     if (!msg.member.roles.find("name", "@everyone")) { //Whatever role you want, I pick @everyone because everyone can use this command
         msg.channel.send('Invalid permissions.');
