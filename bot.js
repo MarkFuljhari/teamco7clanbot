@@ -346,7 +346,7 @@ if (msg.content.startsWith(prefix + 'setgame')) {
   let result = args.slice(1).join(' ');
  
   client.user.setActivity(result);
-  msg.reply("command accepted! \nNew game activity message set!");
+  msg.reply("command accepted! ✅\nGame activity status updated.");
   }
  
 // PREFIX <PREFIX> COMMAND
@@ -357,7 +357,7 @@ if (msg.content.startsWith(prefix + 'setprefix')){
   let result = args.slice(1).join(' ');
  
   client.user.setPrefix(result);
-  msg.reply("command accepted! \nNew Prefix has been set!");
+  msg.reply("command accepted! ✅\nPrefix has been updated.");
 }
 
   // POLL COMMAND:
