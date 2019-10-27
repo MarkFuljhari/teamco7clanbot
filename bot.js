@@ -4,7 +4,7 @@ const client = new Discord.Client();
 var prefix = "!"
 
 client.on('ready', () => {
-  console.log('Clan Robot is ready to work!');
+  console.log('Robot is ready to operate!');
   console.log(`Robot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
   client.user.setActivity(`!help | ${client.users.size} users`);
 });
@@ -20,7 +20,7 @@ client.on('message', async msg => {
   if (msg.content.startsWith(prefix + 'help')) {
     msg.channel.send({embed:{
       "title": "",
-      "description": "Hi! I'm TeamCo7Bot!\nI am developed by TeamCo7Clan.\nI contain numerous commands.\n\nFor a list of commands send **!commands**\n\nJoin our Discord!\nhttps://discord.me/teamco7clan",
+      "description": "Hi! I'm TeamCo7Clan Bot!\nI am developed by TeamCo7Clan.\nI contain numerous commands.\n\nFor a list of commands send **!commands**\n\nJoin our Discord!\nhttps://discord.me/teamco7clan",
       "color": 3447003,
       "footer": {
       "text": "© Copyright TeamCo7Clan"
