@@ -67,13 +67,13 @@ client.on('message', async msg => {
         },
         {
           "name": "» Music",
-          "value": "Currently unavailable. Music Software Developer reauested! Feel free to apply.",
+          "value": "Music unavailable! Software Developer for music requested. Please apply!",
           "inline": false
         }
       ]
     }
   });
-msg.reply('check your inbox for your commands!\nBot is still under development, not all commands shall work!');
+msg.reply('check your inbox for your commands!\nBot is still under development, not all commands shall work!\nJavascript Software Developer requested.');
    }
  
   
