@@ -1,12 +1,12 @@
 {
   "name": "teamco7clanbot",
   "version": "1.0.0",
-  "description": "Clan bot for TeamCo7Clan, friends, guests and public use!",
+  "description": "Clan bot for TeamCo7 Clan!",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "MarkF",
+  "author": "MarkFuljhari",
   "license": "",
   "dependencies": {
     "discord.js": "^11.4.2"
