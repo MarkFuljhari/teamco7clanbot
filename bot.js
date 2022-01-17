@@ -15,7 +15,10 @@ client.on('message', async msg => {
 
     if(msg.author.bot) return; //This here means that if message was sent from the other bots EXEPT Akelli, our bot (Akelli) won't sent anything in the chat (thats why return there is e.g return, returns you to somewhere or something) this prevents bot-ception (when multiple bots were to use the same prefix).
 
-{
+  $ heroku create --stack heroku-18
+  $ heroku stack:set heroku-18
+  
+  {
    "stack": "heroku-18"
 }
   
